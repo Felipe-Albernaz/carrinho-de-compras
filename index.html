@@ -13,18 +13,17 @@
 </head>
 
 <body>
-    <h1 class="titulo">Adicione produtos ou itens de sua escolha ao carrinho e deixe os cálculos com ele!</h1>
     <main class="container">
         <section class="principal">
             <div class="logo-mercado"></div>
             <form action="" id="formulario" class="formulario">
                 <label for="produto">Produto</label>
-                <input id="produto" class="produto" type="text" pattern="[A-Za-zÀ-ú ']{4}" required title="nome do produto"/>
+                <input id="produto" class="produto" type="text" pattern="[A-Za-zÀ-ú']{4,}" required title="nome do produto"/>
                 <label for="quantidade">Quantidade</label>
-                <input id="quantidade" class="quantidade" type="number" min="0" required placeholder="0"/>
+                <input id="quantidade" class="quantidade" type="number" required placeholder="0"/>
                 <label for="valor"">Valor</label>
-                <input id="valor" class="valor" type="number" step="0.01" min="0" placeholder="0,00"/>
-                <button id="adicionar" class="adicionar" type="submit" value="Adicionar">Adicionar</button>
+                <input id="valor" class="valor" type="number" step="0.01" min="0" required placeholder="0,00"/>
+                <input id="adicionar" class="adicionar" type="submit" value="Adicionar"></input>
             </form>
         </section><!--principal-->
         <ul id="lista-compras" class="lista-compras"></ul>

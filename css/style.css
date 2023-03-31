@@ -91,7 +91,7 @@ body{
 
 .formulario .adicionar{
     width: 40%;
-    height: 30px;
+    height: 35px;
     cursor: pointer;
     font-family: var(--font-family);
     font-weight: 600;
@@ -278,6 +278,7 @@ body{
 
     body{
         height: 100%;
+        font-size: 17px;
     }
 
     .principal{
@@ -286,15 +287,11 @@ body{
         margin-top: 20px;
     }
 
-    .titulo{
-        text-align: justify;
-    }
-
     .logo-mercado{
         border-right: none;
         border-bottom: 1.5px solid var(--border-color);
         width: 100%;
-        height: 150px;
+        height: 200px;
     }
 
     .formulario {

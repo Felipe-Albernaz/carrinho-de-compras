@@ -8,7 +8,7 @@ const itens = JSON.parse(localStorage.getItem("itens")) || [];
 
 itens.forEach((elemento) => {
     criaElemento(elemento);
-    total.innerHTML = "R$ " + somaTotal().toFixed(2);
+    total.innerHTML = "R$" + somaTotal().toFixed(2);
     infoLista.innerHTML = "Itens: " + itens.length;
 })
 
@@ -32,19 +32,17 @@ formulario.addEventListener('submit', (evento) => {
 
     
     if (existe) {
-        alert("Este produto ja foi incluso no carrinho. Apenas a quantidade e valor serão alterados!")
         itemAtual.id = existe.id;
         itemAtual.valorTotal = itemAtual.quantidade * itemAtual.valor.replace(',', '.');
         itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual;
         atualizaElemento(itemAtual);
-        document.querySelector('.carrinho').style.animationPlayState = 'paused';
     } else {
         criaElemento(itemAtual);
         itens.push(itemAtual);
     }
 
     localStorage.setItem("itens", JSON.stringify(itens));
-    total.innerHTML = "R$ " + somaTotal().toFixed(2);
+    total.innerHTML = "R$" + somaTotal().toFixed(2);
     infoLista.innerHTML = "Itens: " + itens.length;
 
     produto.value = "";
@@ -64,8 +62,8 @@ function criaElemento(item) {
     novoItem.innerHTML = `
             <strong class="item__quantidade" data-quantidade="${item.id}">${item.quantidade}</strong>
             <strong class="item__nome-produto" data-produto="${item.id}">${item.produto}</strong>
-            <strong class="item__valor-unitario" data-valor="${item.id}">R$ ${item.valor}</strong>
-            <strong class="item__valor-total-produtos" data-total="${item.id}">R$ ${item.valorTotal}</strong>
+            <strong class="item__valor-unitario" data-valor="${item.id}">R$${item.valor}</strong>
+            <strong class="item__valor-total-produtos" data-total="${item.id}">R$${item.valorTotal}</strong>
     `
     novoItem.appendChild(botaoAlteraItem());
     novoItem.appendChild(botaoDeleta(item.id));
@@ -81,8 +79,8 @@ function criaElemento(item) {
     linha_tabela.innerHTML = `
             <td data-tabela-quantidade="${item.id}">${item.quantidade}</td>
             <td data-tabela-produto="${item.id}">${item.produto}</td>
-            <td data-tabela-valor="${item.id}">R$ ${item.valor}</td>
-            <td data-tabela-total="${item.id}">R$ ${item.valorTotal}</td>
+            <td data-tabela-valor="${item.id}">R$${item.valor}</td>
+            <td data-tabela-total="${item.id}">R$${item.valorTotal}</td>
     `
     table.appendChild(linha_tabela);
 }
@@ -90,8 +88,8 @@ function criaElemento(item) {
 //função atualiza item
 function atualizaElemento(item) {
     document.querySelector("[data-quantidade = '" + item.id + "']").innerHTML = item.quantidade;
-    document.querySelector("[data-valor = '" + item.id + "']").innerHTML = `R$ ${item.valor}`;
-    document.querySelector("[data-total = '" + item.id + "']").innerHTML = `R$ ${item.valorTotal}`;
+    document.querySelector("[data-valor = '" + item.id + "']").innerHTML = `R$${item.valor}`;
+    document.querySelector("[data-total = '" + item.id + "']").innerHTML = `R$${item.valorTotal.toFixed(2)}`;
     document.querySelector("[data-tabela-quantidade = '"+item.id+"']").innerHTML = itens[item.id].quantidade;
     document.querySelector("[data-tabela-valor = '"+item.id+"']").innerHTML = itens[item.id].valor;
     document.querySelector("[data-tabela-total = '"+item.id+"']").innerHTML = itens[item.id].valorTotal;
@@ -124,7 +122,7 @@ function botaoDeleta(id) {
 
     botao.addEventListener('click', function () {
         deletaItem(botao.parentNode, id);
-        total.innerHTML = "R$ " + somaTotal().toFixed(2);
+        total.innerHTML = "R$" + somaTotal().toFixed(2);
         infoLista.innerHTML = "Itens: " + itens.length;
         document.getElementById('quantidade').value = "";
         document.getElementById('produto').removeAttribute('disabled', "");
