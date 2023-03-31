@@ -13,52 +13,40 @@
 </head>
 
 <body>
+    <h1 class="titulo">Adicione produtos ou itens de sua escolha ao carrinho e deixe os cálculos com ele!</h1>
     <main class="container">
         <section class="principal">
-            <div class="logo-mercado">
-                <img src="./images/cart 2x.png">
-            </div>
+            <div class="logo-mercado"></div>
             <form action="" id="formulario" class="formulario">
                 <label for="produto">Produto</label>
-                <input id="produto" class="produto" type="text" required title="nome do produto">
+                <input id="produto" class="produto" type="text" pattern="[A-Za-zÀ-ú ']{4}" required title="nome do produto"/>
                 <label for="quantidade">Quantidade</label>
-                <input id="quantidade" class="quantidade" type="number" min="0" required placeholder="0">
+                <input id="quantidade" class="quantidade" type="number" min="0" required placeholder="0"/>
                 <label for="valor"">Valor</label>
-                <input id="valor" class="valor" type="number" step="0.01" min="0" placeholder="0,00">
-                <i class="fa-solid fa-cart-arrow-down carrinho"></i>
-                <input id="adicionar" class="adicionar" type="submit" value="Adicionar">
+                <input id="valor" class="valor" type="number" step="0.01" min="0" placeholder="0,00"/>
+                <button id="adicionar" class="adicionar" type="submit" value="Adicionar">Adicionar</button>
             </form>
         </section><!--principal-->
-
-        <ul id="lista-compras" class="lista-compras"><h3>Lista de Produtos</h3></ul>
-
+        <ul id="lista-compras" class="lista-compras"></ul>
         <section class="info-lista">
             <p></p>
-            <button class="botao botao-pdf" title="imprimir lista como pdf">Gerar PDF</button>
-            <button class="botao limpar-tudo" title="limpar todos os dados">Limpar tudo</button>
+            <button class="btn btn-imprimir" title="imprimir lista">Imprimir</button>
+            <button class="btn limpar-tudo" title="remover todos os itens">Excluir tudo</button>
         </section>
-        <section class="valor-total">
-            Total<p class="total"></p>
-        </section>
+        <section class="valor-total">Total<p class="total"></p></section>
         <section class="tabela">
-            <table>
-                <tr>
-                    <th>Quantidade</th>
-                    <th>Produto</th>
-                    <th>Valor unitário</th>
-                    <th>Valor total</th>
-                </tr>
-            </table>
+            <table><tr><th>Quantidade</th><th>Produto</th><th>Valor Unitário</th><th>Valor Produtos</th></tr></table>
         </section>
-        <section class="autor">
-            <p>Desenvolvido por Felipe Albernaz</p> 
-            <a href="https://github.com/Felipe-Albernaz" target="_blank"><br><img src="./images/git.png" width="30px" height="30px"></a>
-        </section>
+        <div class="ilus"></div>
     </main><!--container-->
+    <footer class="autor">
+        <p>Desenvolvido por <strong>Felipe Albernaz<strong></p> 
+        <a href="https://github.com/Felipe-Albernaz" target="_blank"><br><img src="./images/git.png" width="30px" height="30px"/></a>
+    </footer>
 
 
     <script src="/javascript/principal.js"></script>
-    <script src="/javascript/gerarPDF.js"></script>
+    <script src="/javascript/imprimir.js"></script>
 </body>
 
 </html>

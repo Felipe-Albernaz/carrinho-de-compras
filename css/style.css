@@ -2,34 +2,41 @@
 
 :root{
     --font-family: 'Montserrat';
-    --bg-color: #282A3A;
+    --bg-color: #5356738b;
     --font-color: #ECECEC;
+    --cor-secundaria: #5551e8;
+    --border-color: #282A3A;
 }
 
+
 body{
-    background-color: var(--bg-color);
     display: flex;
-    height: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     color: var(--font-color);
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 700;
+    background: linear-gradient(to bottom,#212438,#282A3A, #121214);
 }
 
 .container{
     width: min(100% - 30px, 840px);
 }
 
+.titulo{
+    height: 90px;
+    font-size: 17px;
+    padding: 20px;
+}
+
 .principal{
     display: flex;
     width: 100%;
-    height: 450px;
-    background-color: #3d3f52;
-    border-radius: 10px;
-    margin-top: 50px;
-    box-shadow: 1px 1px 5px 2px #6661e8;
+    height: 400px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
 }
 
 .logo-mercado{
@@ -37,14 +44,18 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1.5px solid #6561e8b2;
+    border-right: 2px solid var(--border-color);
+    background-image: url('../images/cart2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .formulario{
     width: 70%;
     display: grid;
     position: relative;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 150px 140px 60px;
     align-content: center;
     align-items: center;
     justify-content: center;
@@ -55,14 +66,14 @@ body{
 
 .formulario input{
     height: 32px;
-    border: 1.5px solid #212438;
-    border-radius: 5px;
     font-size: 17px;
     padding-left: 10px;
     align-self: center;
     justify-self: start;
-    background-color: #4d5268;
-    color: #ECECEC;
+    background: #ffffff10;
+    border: 1px solid var(--border-color);
+    color: var(--font-color);
+    border-radius: 4px;
 }
 
 .formulario label{
@@ -75,50 +86,32 @@ body{
 }
 
 .formulario .quantidade, .valor{
-    width: 70%;
-}
-
-.formulario .carrinho{
-    font-size: 22px;
-    position: absolute;
-    bottom: 30.5%;
-    right: 37%;
+    width: 40%;
 }
 
 .formulario .adicionar{
-    width: 55%;
-    height: 35px;
-    background-color: #5550ea;
+    width: 40%;
+    height: 30px;
     cursor: pointer;
     font-family: var(--font-family);
-    color: var(--font-color);
     font-weight: 600;
-    border: none;
-    padding: 0;
+    font-size: 17px;
     grid-column: span 5;
     justify-self: center;
-}
-
-.adicionar:hover{
-    background-color: #6661e8;
+    background-color: var(--cor-secundaria);
+    color: var(--font-color);
+    border: none;
+    border-radius: 5px;
 }
 
 .lista-compras{
     width: auto;
     height: auto;
     margin-top: 50px;
-    background-color: #3d3f52;
-    border-radius: 10px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
     padding: 20px;
-    box-shadow: 1px 1px 2px 2px #6661e8;
     text-align: center;
-}
-
-.lista-compras h3{
-    border-bottom: 2px solid #282A3A;
-    border-style: groove;
-    padding: 25px;
-    font-size: 18px;
 }
 
 .lista-compras .item{
@@ -128,13 +121,13 @@ body{
     justify-content: space-between;
     width: 100%;
     height: 75px;
-    border-bottom: 2px solid #282A3A;
+    border-bottom: 2px solid var(--border-color);
     border-radius: 10px;
     padding: 5px;
 }
 
 .lista-compras li:hover{
-    background-color: #4d5268;
+    background-color: var(--bg-color);
 }
 
 
@@ -143,7 +136,7 @@ body{
     width: 35px;
     height: 35px;
     border-radius: 50px;
-    background-color: #282A3A;
+    background-color: var(--border-color);
     align-items: center;
     justify-content: center;
 }
@@ -182,13 +175,13 @@ body{
 .lista-compras > .item >.alteraItem:hover{
     scale: 1.2;
     transition: 0.1s;
-    color: #212438;
+    color: var(--cor-secundaria);
 }
 
 .lista-compras > .item >.deletaItem:hover{
     scale: 1.2;
     transition: 0.1s;
-    color: #212438;
+    color: var(--cor-secundaria);
 }
 
 .info-lista{
@@ -206,12 +199,12 @@ body{
     flex: auto;
 }
 
-.info-lista >.botao{
+.info-lista >.btn{
     width: 100px;
     height: 35px;
     border: none;
     border-radius: 5px;
-    background-color: #5550ea;
+    background-color: var(--cor-secundaria);
     color: var(--font-color);
     font-family: var(--font-family);
     font-weight: 600;
@@ -219,27 +212,34 @@ body{
     cursor: pointer;
 }
 
-.info-lista >.botao:hover{
-    background-color: #6661e8;
-}
-
 .valor-total{
     display: flex;
     width: auto;   
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     margin-top: 50px;
     font-size: 20px;
+    
+}
+
+.ilus{
+    width: auto;
+    height: 200px;
+    background-image: url('../images/payments.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 40px;
 }
 
 .valor-total >.total{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
+    width: 180px;
     height: 40px;
-    background-color: #3d3f52;
+    background-color: var(--bg-color);
     border-radius: 5px;
 }
 
@@ -250,7 +250,13 @@ body{
     justify-content: center;
     width: auto;
     height: 100px;
-    margin-top: 100px;
+    margin-top: 40px;
+}
+
+.autor strong{
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    font-style: oblique;
 }
 
 .autor a{
@@ -265,53 +271,58 @@ body{
 
 .tabela{
     display: none;
-    width: 100%;
-    font-size: 17px;
 }
-
-.tabela > table tr, th, td{
-    width: 300px;
-    border: 1px solid #4d5268;
-    border-collapse: collapse;
-    fill: 2px 3px;
-    text-align: center;
-    padding: 5px;
-}
-
 
 
 @media screen and (max-width: 690px) {
+
+    body{
+        height: 100%;
+    }
+
     .principal{
         flex-direction: column;
-        height: auto;
-        box-shadow: 1px 1px 5px 2px #6661e8;
+        height: 500px;
+        margin-top: 20px;
+    }
+
+    .titulo{
+        text-align: justify;
     }
 
     .logo-mercado{
         border-right: none;
-        border-bottom: 1.5px solid #6561e8b2;
-        width: auto;
+        border-bottom: 1.5px solid var(--border-color);
+        width: 100%;
+        height: 150px;
     }
 
     .formulario {
         width: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
     }
 
     .formulario label{
         width: 70%;
     }
 
+    .formulario .quantidade, .valor{
+        width: 70%;
+    }
+
     .formulario .carrinho{
+        font-size: 17px;
         justify-self: center;
         bottom: 8%;
-        right: 30%;
+        left: 30%;
     }
 
     .formulario .adicionar{
+        font-size: 16px;
         width: 65%;
+        margin-top: 30px;
     }
 
     .lista-compras li{
@@ -323,6 +334,10 @@ body{
     .lista-compras > li >.valor-unitario{
         left: 10px;
         bottom: 5px;
+    }
+
+    .valor-total .total{
+        width: 150px;
     }
     
 }
