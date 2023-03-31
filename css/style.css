@@ -283,7 +283,7 @@ body{
 
     .principal{
         flex-direction: column;
-        height: 500px;
+        height: 600px;
         margin-top: 20px;
     }
 
@@ -298,7 +298,11 @@ body{
         width: auto;
        display: flex;
        flex-direction: column;
-       gap: 10px;
+       gap: 20px;
+    }
+
+    .formulario input{
+        height: 40px;
     }
 
     .formulario label{
@@ -317,9 +321,10 @@ body{
     }
 
     .formulario .adicionar{
-        font-size: 16px;
+        height: 40px;
+        font-size: 17px;
         width: 65%;
-        margin-top: 30px;
+        margin-top: 35px;
     }
 
     .lista-compras li{
@@ -335,6 +340,12 @@ body{
 
     .valor-total .total{
         width: 150px;
+    }
+
+    .info-lista >.btn{
+        width: 120px;
+        font-size: 17px;
+        height: 40px;
     }
     
 }
