@@ -156,7 +156,7 @@ function somaTotal(){
 
 //função deixa primeira letra maiúscula e remove os acentos
 function formataProduto(nomeProduto){
-    var nome = nomeProduto.normalize("NFD").replace(/[^a-zA-Z\s]/g, "");
+    var nome = nomeProduto.normalize("NFD").replace(/[^a-zA-Z\s+]/g, "");
     var palavras = nome.split(" ");
     const novo = palavras.map((palavra)=>{
         return palavra[0].toUpperCase() + palavra.substring(1);
