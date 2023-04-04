@@ -23,11 +23,11 @@ formulario.addEventListener('submit', (evento) => {
     const quantidade = evento.target.elements['quantidade'];
     const valor = evento.target.elements['valor'];
 
-    const existe = itens.find(elemento => elemento.produto === primeiraLetraMaiuscula(produto.value));
+    const existe = itens.find(elemento => elemento.produto === formataProduto(produto.value));
 
     const itemAtual = {
         id: itens.length,
-        produto: primeiraLetraMaiuscula(produto.value),
+        produto: formataProduto(produto.value),
         quantidade: quantidade.value,
         valor: parseFloat(valor.value).toFixed(2),
     }
@@ -154,9 +154,10 @@ function somaTotal(){
     return soma;
 }
 
-//função  deixa apenas primeira letra maiúscula
-function primeiraLetraMaiuscula(nomeProduto){
-    var palavras = nomeProduto.split(" ");
+//função deixa primeira letra maiúscula e remove os acentos
+function formataProduto(nomeProduto){
+    var nome = nomeProduto.normalize("NFD").replace(/[^a-zA-Z\s]/g, "");
+    var palavras = nome.split(" ");
     const novo = palavras.map((palavra)=>{
         return palavra[0].toUpperCase() + palavra.substring(1);
     }).join(" ");
