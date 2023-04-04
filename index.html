@@ -8,40 +8,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="./images/cart.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Carrinho de compras</title>
 </head>
 
 <body>
-    <main class="container">
-        <section class="principal">
-            <div class="logo-mercado"></div>
-            <form action="" id="formulario" class="formulario">
-                <label for="produto">Produto</label>
-                <input id="produto" class="produto" type="text" required/>
-                <label for="quantidade">Quantidade</label>
-                <input id="quantidade" class="quantidade" type="number" required placeholder="0"/>
-                <label for="valor"">Valor</label>
-                <input id="valor" class="valor" type="number" step="0.01" min="0" required placeholder="0,00"/>
-                <input id="adicionar" class="adicionar" type="submit" value="Adicionar"></input>
-            </form>
-        </section><!--principal-->
-        <ul id="lista-compras" class="lista-compras"></ul>
-        <section class="info-lista">
-            <p></p>
-            <button class="btn btn-imprimir" title="imprimir lista">Imprimir</button>
-            <button class="btn limpar-tudo" title="remover todos os itens">Excluir tudo</button>
-        </section>
-        <section class="valor-total">Total<p class="total"></p></section>
-        <section class="tabela">
-            <table><tr><th>Quantidade</th><th>Produto</th><th>Valor Unitário</th><th>Valor Produtos</th></tr></table>
-        </section>
-        <div class="ilus"></div>
-    </main><!--container-->
-    <footer class="autor">
-        <p>Desenvolvido por <strong>Felipe Albernaz<strong></p> 
-        <a href="https://github.com/Felipe-Albernaz" target="_blank"><br><img src="./images/git.png" width="30px" height="30px"/></a>
-    </footer>
+    <div class="container">
+        <header >
+            <div class="logo"><img src="./images/cart.png"/></div>
+            <h1>Carrinho de compras</h1>
+        </header>
+        <main>
+            <section class="principal">
+                <div class="logo-mercado"></div>
+                <form action="" id="formulario" class="formulario">
+                    <input id="produto" class="produto" type="text" required placeholder="Produto" title="Pelo menos (3) caracteres" pattern="[a-zà-ú, ]{3,}"/>
+                    <input id="quantidade" class="quantidade" type="number" min="1" required placeholder="Quant: 0"/>
+                    <input id="valor" class="valor" type="number" step="0.01" min="0" required placeholder="Valor: 0,00"/>
+                    <input id="adicionar" class="adicionar" type="submit" value="Adicionar"></input>
+                </form>
+            </section><!--principal-->
+            <ul id="lista-compras" class="lista-compras"></ul>
+            <section class="info-lista">
+                <p></p>
+                <button class="btn btn-imprimir" title="imprimir lista">Imprimir</button>
+                <button class="btn limpar-tudo" title="remover todos os itens">Excluir tudo</button>
+            </section>
+            <section class="valor-total">Total<p class="total"></p></section>
+            <section class="tabela">
+                <table><tr><th>Quantidade</th><th>Produto</th><th>Valor Unitário</th><th>Valor Produtos</th></tr></table>
+            </section>
+            <div class="ilus"></div>
+        </main><!--container-->
+        <footer class="autor">
+            <p>Desenvolvido por <strong>Felipe Albernaz<strong></p> 
+            <a href="https://github.com/Felipe-Albernaz" target="_blank"><br><img src="./images/git.png" width="30px" height="30px"/></a>
+        </footer>
+    </div>
+    
 
 
     <script src="/javascript/principal.js"></script>
