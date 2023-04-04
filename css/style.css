@@ -292,12 +292,12 @@ header{
     }
 
     .logo-mercado{
-        width: 100%;
+        width: 90%;
         height: 40%;
     }
 
     .formulario {
-        width: 80%;
+        width: 90%;
         height: 70%;
     }
 
@@ -319,6 +319,10 @@ header{
     .check{
         top: 80%;
         left: 40%;
+    }
+
+    .info-lista >.btn{
+        font-size: 15px;
     }
     
 }
