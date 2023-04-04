@@ -12,6 +12,8 @@ itens.forEach((elemento) => {
     infoLista.innerHTML = "Itens: " + itens.length;
 })
 
+infoLista.innerHTML = "Itens: " + itens.length;
+
 
 //formulario
 formulario.addEventListener('submit', (evento) => {
@@ -27,7 +29,7 @@ formulario.addEventListener('submit', (evento) => {
         id: itens.length,
         produto: primeiraLetraMaiuscula(produto.value),
         quantidade: quantidade.value,
-        valor: parseFloat(valor.value).toFixed(2) ,
+        valor: parseFloat(valor.value).toFixed(2),
     }
 
     
@@ -39,7 +41,9 @@ formulario.addEventListener('submit', (evento) => {
     } else {
         criaElemento(itemAtual);
         itens.push(itemAtual);
+        checked();
     }
+
 
     localStorage.setItem("itens", JSON.stringify(itens));
     total.innerHTML = "R$" + somaTotal().toFixed(2);
@@ -152,7 +156,7 @@ function somaTotal(){
 
 //função  deixa apenas primeira letra maiúscula
 function primeiraLetraMaiuscula(nomeProduto){
-    const palavras = nomeProduto.split(" ");
+    var palavras = nomeProduto.split(" ");
     const novo = palavras.map((palavra)=>{
         return palavra[0].toUpperCase() + palavra.substring(1);
     }).join(" ");
@@ -160,10 +164,22 @@ function primeiraLetraMaiuscula(nomeProduto){
     return novo;
 }
 
+
 //btn limpa tudo
 btn_Limpartudo.addEventListener('click', ()=>{
     localStorage.clear();
     window.location.reload();
 });
 
-infoLista.innerHTML = "Itens: " + itens.length;
+
+function checked(){
+    const principal = document.querySelector('.principal');
+    const box = document.createElement('div');
+    box.classList.add('check');
+    principal.appendChild(box);
+    setTimeout(()=>{
+        principal.removeChild(box);
+        box.classList.remove('check');
+    }, 1500);
+    clearTimeout();
+}
