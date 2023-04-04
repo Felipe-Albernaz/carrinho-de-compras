@@ -292,10 +292,14 @@ header{
     }
 
     .principal{
-        height: 700px;
+        height: 750px;
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
+    }
+
+    .titulo-formulario{
+        text-align: center;
     }
 
     .logo-mercado{
@@ -332,6 +336,32 @@ header{
         font-size: 15px;
     }
     
+}
+
+@media screen and (max-width: 375px) {
+
+    body{
+        height: 100%;
+        font-size: 16px;
+    }
+
+    header{
+        width: auto;
+    }
+
+    .titulo-formulario{
+        text-align: center;
+    }
+
+    .logo-mercado{
+        width: 95%;
+        height: 40%;
+    }
+
+    .formulario {
+        width: 95%;
+        height: 70%;
+    }
 }
     
 
