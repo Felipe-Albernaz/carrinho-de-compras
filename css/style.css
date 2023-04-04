@@ -23,6 +23,7 @@ body{
 
 .container{
     width: min(100% - 30px, 840px);
+    height: 100%;
 }
 
 header{
@@ -65,10 +66,10 @@ header{
 }
 
 .titulo-formulario{
-    width: 100%;
     text-align: center;
+    align-self: baseline;
     border-bottom: 1.5px solid var(--border-color);
-    padding-bottom: 30px;
+    padding: 0 10px 30px 10px;
 }
 
 .formulario input{
@@ -350,6 +351,7 @@ header{
     }
 
     .titulo-formulario{
+        width: 90%;
         text-align: center;
     }
 
