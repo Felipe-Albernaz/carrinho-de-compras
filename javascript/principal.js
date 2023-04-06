@@ -27,7 +27,7 @@ formulario.addEventListener('submit', (evento) => {
 
     const itemAtual = {
         id: itens.length,
-        produto: formataProduto(produto.value).trim(),
+        produto: formataProduto(produto.value),
         quantidade: quantidade.value,
         valor: parseFloat(valor.value).toFixed(2),
     }
@@ -157,11 +157,7 @@ function somaTotal(){
 //função deixa primeira letra maiúscula e remove os acentos
 function formataProduto(nomeProduto){
     var nome = nomeProduto.normalize("NFD").replace(/[^a-zA-Z\s+]/g, "");
-    var palavras = nome.split(" ");
-    const novo = palavras.map((palavra)=>{
-        return palavra[0].toUpperCase() + palavra.substring(1);
-    }).join(" ");
-
+    const novo = nome.trim();
     return novo;
 }
 
