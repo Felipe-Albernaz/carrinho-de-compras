@@ -27,7 +27,7 @@ formulario.addEventListener('submit', (evento) => {
 
     const itemAtual = {
         id: itens.length,
-        produto: formataProduto(produto.value),
+        produto: formataProduto(produto.value).trim(),
         quantidade: quantidade.value,
         valor: parseFloat(valor.value).toFixed(2),
     }
