@@ -1,4 +1,4 @@
-# carrinho-de-compras
+# lista-de-compras
 
 <p>A ideia do projeto é criar uma lista de compras com os itens e suas informações como quantidade, nome, valor dos itens e o total da compra. As informações são armazenadas no navegador através do localStorage e é possível exclui-las com a funcionalidade Limpar.</p>
 
