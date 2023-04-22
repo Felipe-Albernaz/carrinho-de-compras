@@ -102,7 +102,7 @@ function criaElemento(item) {
     const linha_tabela = document.createElement('tr');
     linha_tabela.dataset.idLinhaTabela=  item.id;
     linha_tabela.innerHTML = `
-            <td data-tabela-quantidade="${item.id}">${item.quantidade}</td>
+            <td data-tabela-quantidade="${item.id}">${item.quantidade}${item.base}</td>
             <td data-tabela-produto="${item.id}">${item.produto}</td>
             <td data-tabela-valor="${item.id}">R$${item.valor}</td>
             <td data-tabela-total="${item.id}">R$${item.valorTotal}</td>
