@@ -21,10 +21,20 @@
             <main>
                 <section class="principal">
                     <div class="logo-mercado"></div>
-                    <form action="" id="formulario" class="formulario">
+                    <form action="" id="formulario" class="formulario" name="formulario">
                         <h2 class="titulo-formulario">Para adicionar um produto à lista preencha as informações abaixo</h2>
                         <input id="produto" class="produto" type="text" required placeholder="Produto"/>
-                        <input id="quantidade" class="quantidade" type="number" min="1" required placeholder="Quant: 0"/>
+                        <fieldset class="opcao-quantidade">
+                            <div>
+                                <input type="radio" value="Und" name="base"/>
+                                <label for="base">Unidade(s)</label>
+                            </div>
+                            <div>
+                                <input type="radio" value="Kg" name="base"/>
+                                <label for="base">Quilograma</label>
+                            </div>
+                        </fieldset>
+                        <input id="quantidade" class="quantidade" type="number" step="0.001" required placeholder=""/>
                         <input id="valor" class="valor" type="number" step="0.01" min="0" required placeholder="Valor: 0,00"/>
                         <input id="adicionar" class="adicionar" type="submit" value="Adicionar"></input>
                     </form>

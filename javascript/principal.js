@@ -5,6 +5,7 @@ const btn_Limpartudo = document.querySelector('.limpar-tudo');
 const total = document.querySelector('.total');
 const table = document.querySelector('.tabela table');
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
+const radio = document.getElementsByName('base');
 
 itens.forEach((elemento) => {
     criaElemento(elemento);
@@ -14,36 +15,55 @@ itens.forEach((elemento) => {
 
 infoLista.innerHTML = "Itens: " + itens.length;
 
+radio.forEach(op => {
+    op.addEventListener('change', ()=>{
+        if(op.value == 'Kg'){
+            document.getElementById('quantidade').removeAttribute('min', '1');
+            document.getElementById('quantidade').setAttribute('step', '0.001');
+            document.getElementById('quantidade').removeAttribute('placeholder', 'Und: 0');
+            document.getElementById('quantidade').setAttribute('placeholder', 'Kg: 0');
+        }else{
+            document.getElementById('quantidade').removeAttribute('step', '0.001');
+            document.getElementById('quantidade').setAttribute('min', '1');
+            document.getElementById('quantidade').removeAttribute('placeholder', 'Kg: 0');
+            document.getElementById('quantidade').setAttribute('placeholder', 'Und: 0');
+        }
+    })
+})
+
 
 //formulario
 formulario.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
     const produto = evento.target.elements['produto'];
+    const base = evento.target.elements['base'];
     const quantidade = evento.target.elements['quantidade'];
     const valor = evento.target.elements['valor'];
 
     const existe = itens.find(elemento => elemento.produto === formataProduto(produto.value));
 
+
     const itemAtual = {
         id: itens.length,
         produto: formataProduto(produto.value),
+        base: base.value,
         quantidade: quantidade.value,
         valor: parseFloat(valor.value).toFixed(2),
     }
-
-    
+  
     if (existe) {
         itemAtual.id = existe.id;
         itemAtual.valorTotal = itemAtual.quantidade * itemAtual.valor.replace(',', '.');
         itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual;
         atualizaElemento(itemAtual);
-    } else {
+    } else if(base.value == '') {
+        alert('Selecione uma das opções!\nUnidade(s) ou Kg');
+    }else{
         criaElemento(itemAtual);
         itens.push(itemAtual);
         checked();
     }
-
 
     localStorage.setItem("itens", JSON.stringify(itens));
     total.innerHTML = "R$" + somaTotal().toFixed(2);
@@ -59,14 +79,15 @@ formulario.addEventListener('submit', (evento) => {
 //cria novo item
 function criaElemento(item) {
     item.valorTotal = (item.quantidade * item.valor.replace(',', '.')).toFixed(2);
+
     //Lista do carrinho
     const novoItem = document.createElement('li');
     novoItem.classList.add('item');
     novoItem.dataset.iditem = item.id;
     novoItem.innerHTML = `
-            <strong class="item__quantidade" data-quantidade="${item.id}">${item.quantidade}</strong>
+            <strong class="item__quantidade" data-quantidade="${item.id}">${item.quantidade} ${item.base}</strong>
             <strong class="item__nome-produto" data-produto="${item.id}">${item.produto}</strong>
-            <strong class="item__valor-unitario" data-valor="${item.id}">R$${item.valor}</strong>
+            <strong class="item__valor-unitario" data-valor="${item.id}">Preço: R$${item.valor}</strong>
             <strong class="item__valor-total-produtos" data-total="${item.id}">R$${item.valorTotal}</strong>
     `
     novoItem.appendChild(botaoAlteraItem());
