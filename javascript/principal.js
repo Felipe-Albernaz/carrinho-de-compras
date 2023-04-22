@@ -21,11 +21,11 @@ radio.forEach(op => {
             document.getElementById('quantidade').removeAttribute('min', '1');
             document.getElementById('quantidade').setAttribute('step', '0.001');
             document.getElementById('quantidade').removeAttribute('placeholder', 'Und: 0');
-            document.getElementById('quantidade').setAttribute('placeholder', 'Kg: 0');
+            document.getElementById('quantidade').setAttribute('placeholder', 'Kg: 0,000');
         }else{
             document.getElementById('quantidade').removeAttribute('step', '0.001');
             document.getElementById('quantidade').setAttribute('min', '1');
-            document.getElementById('quantidade').removeAttribute('placeholder', 'Kg: 0');
+            document.getElementById('quantidade').removeAttribute('placeholder', 'Kg: 0,000');
             document.getElementById('quantidade').setAttribute('placeholder', 'Und: 0');
         }
     })
